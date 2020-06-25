@@ -6,10 +6,15 @@
     <title>flusk test</title>
     <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script> 
     <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'></link>
+    <link rel="stylesheet" href="static/styles.css" media="screen"/>
 </head>
 <body>
+    <div class = "model 1">
+        <a href="/home">home</a>
+        <a href="/data">data</a>
+    </div>
     {% for item in results %}
-    <x3d width='500px' height='400px'> 
+    <x3d width='560.3px' height='460.3px'> 
     <scene>
         <inline url="{{ url_for ('static', filename='modelsfile/'+item[1]) }}"> </inline> 
     </scene> 

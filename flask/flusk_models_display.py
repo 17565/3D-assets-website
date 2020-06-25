@@ -19,9 +19,15 @@ def close_connection(exception):
     if db is not None:
         db.close()
 
-#displays data
+#displays home page
 @app.route("/")
+@app.route("/home")
 def home():
+    return render_template ("home_page.html")
+
+#displays data
+@app.route("/data")
+def data():
     cursor = get_db().cursor() 
     sql = "SELECT * FROM models"
     cursor.execute(sql)
