@@ -11,6 +11,7 @@ def get_db():
     if db is None:
         db = g._database = sqlite3.connect(DATABASE)
     return db
+#done
 
 #closes connetion
 @app.teardown_appcontext
@@ -18,6 +19,7 @@ def close_connection(exception):
     db = getattr(g, '_database', None)
     if db is not None:
         db.close()
+#done
 
 #displays data
 @app.route("/")
@@ -27,6 +29,7 @@ def home():
     cursor.execute(sql)
     results = cursor.fetchall()
     return render_template("contents.html", results=results)
+#done
 
 #adds item to database
 @app.route("/add", methods=["GET","POST"])
@@ -39,6 +42,7 @@ def add():
         cursor.execute(sql,(new_name, new_cost))
         get_db().commit()
     return redirect("/")
+#done
 
 #delete items from database
 @app.route("/delete",methods=["GET","POST"])

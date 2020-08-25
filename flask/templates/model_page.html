@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flusk test</title>
+    <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+
+<body>
+    <ul>
+        <li><a href="/">home page</a></li>
+        <li><a href="/feedback">feedback page</a></li>
+    </ul>
+    {% for item in results %}
+    <b>
+        <a href="/model/{{ item[0] }}"><p>Name: {{ item[2] }}</p></a>
+        <x3d width='500px' height='420px'>
+            <scene>
+                <inline url="{{ url_for ('static', filename='modelsfile/'+item[1]) }}"> </inline>
+            </scene>
+        </x3d>
+        <p>Description: {{ item[3] }}</p>
+    </b>
+    {% endfor %}
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/styles.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+    <table>
+
+        <div class="model 1">
+            <ul>
+                <li><a href="/">home page</a></li>
+                <li><a href="/data">models page</a></li>
+            </ul>
+        </div>
+
+        <h1>feedback page</h1>
+
+        <tr>
+
+            <th>comment</th>
+            <th>related model</th>
+            <th>delete</th>
+
+        </tr>
+
+        {% for item in results %}
+
+        <tr>
+            
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+
+            <td>
+
+                <form action="/delete" method="post">
+                <input type="hidden" name="comment" value="{{item[0]}}">
+                <input type="submit" value="delete">
+                </form>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+    <form action="/add" method="post">
+
+        <input type="text" name="comment">
+        <!--<div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                
+            </div>
+          </div>-->
+        <input type="text" name="related_model">
+        <input type="submit" value="add">
+
+    </form>
+
+</body>
+
+</html>
