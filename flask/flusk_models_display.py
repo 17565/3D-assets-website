@@ -56,8 +56,13 @@ def feedback():
     cursor = conn.cursor()
     sql = "SELECT * FROM comments"
     cursor.execute(sql)
-    results = cursor.fetchall()
-    return render_template("comments_and_feedback_page.html", results=results)
+    comments = cursor.fetchall()
+    conn = get_db()
+    cursor = conn.cursor()
+    sql = "SELECT * FROM models"
+    cursor.execute(sql)
+    models = cursor.fetchall()
+    return render_template("comments_and_feedback_page.html", comments=comments, models=models)
 
 #adds item to database
 @app.route("/add", methods=["POST"])
@@ -66,9 +71,9 @@ def add():
         conn = get_db()
         cursor = conn.cursor()
         comment_1 = request.form["comment"]
-        related_model_1 = request.form["related_model"]
+        id = request.form["model"]
         sql = "INSERT INTO comments(comment, related_model) VALUES (?,?)"
-        cursor.execute(sql,( comment_1, related_model_1))
+        cursor.execute(sql,( comment_1, id))
         conn.commit()
     return redirect("/feedback")
 

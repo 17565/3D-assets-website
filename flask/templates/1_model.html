@@ -1,64 +1,21 @@
-<!doctype html>
-<html>
+{% extends "model_layout.html" %}
 
-<head>
-    {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <title>{% block title %}{% endblock %} - My Webpage</title>
-    <script type='text/javascript' src="{{'http://www.x3dom.org/download/x3dom.js'}}"> </script>
+    {% block content %}
+        <body>
+                <ul>
+                    <li><a href="/">home page</a></li>
+                    <li><a href="/feedback">feedback page</a></li>
+                    <li><a href="/data">models page</a></li>
+                </ul>
+                <b>
+                    <p>Name: {{ result[2] }}</p>
+                    <x3d width='500px' height='420px'>
+                        <scene>
+                            <inline url="/static/modelsfile/{{ result[1]}}"> </inline>
+                        </scene>
+                    </x3d>
+                    <p>Description: {{ result[3] }}</p>
+                </b>
+            </div>
+        </body>
     {% endblock %}
-</head>
-
-<body>
-    <div id="content">{% block content %}{% endblock %}</div>
-    <div id="footer">
-        {% block footer %}
-        <ul>
-            <li><a href="/">home page</a></li>
-            <li><a href="/feedback">feedback page</a></li>
-            <li><a href="/data">models page</a></li>
-        </ul>
-        <b>
-            <p>Name: {{ result[2] }}</p>
-            <x3d width='500px' height='420px'>
-                <scene>
-                    <inline url="/static/modelsfile/{{ result[1]}}"> </inline>
-                </scene>
-            </x3d>
-            <p>Description: {{ result[3] }}</p>
-        </b>
-        {% endblock %}
-    </div>
-</body>
-
-</html>
-
-<!--<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>flusk test</title>
-    <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
-    <link rel="stylesheet" href="static/styles.css">
-</head>
-
-<body>
-    <ul>
-        <li><a href="/">home page</a></li>
-        <li><a href="/feedback">feedback page</a></li>
-        <li><a href="/data">models page</a></li>
-    </ul>
-    <b>
-        <p>Name: {{ result[2] }}</p>
-        <x3d width='500px' height='420px'>
-            <scene>
-                <inline url="/static/modelsfile/{{ result[1]}}"> </inline>
-            </scene>
-        </x3d>
-        <p>Description: {{ result[3] }}</p>
-    </b>
-</body>
-
-</html>-->

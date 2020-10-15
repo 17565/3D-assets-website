@@ -4,20 +4,20 @@ body {
   background-color: rgb(0, 0, 0);
 }
 
-h1 {
-  color: white;
-}
-
-p {
-  color: white;
-}
-
-th {
+td,label,th,p,h1 {
   color: white;
 }
 
 td {
-  color: white;
+  padding: 5px 50px;
+}
+input,select {
+  padding: 10px 13px;
+  float: left;
+}
+
+table {
+  padding: 5px 5px;
 }
 
 /* css for the models and how they are placed*/
@@ -47,50 +47,4 @@ li a {
   text-decoration: none;
 }
 
-/* Dropdown Button
-.dropbtn {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: white;
-  display: block;
-  color: black;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  border: none;
-}
-
-The container <div> - needed to position the dropdown content
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-Dropdown Content (Hidden by Default)
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-Links inside the dropdown
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}*/
-
-/* Change color of dropdown links on hover */
-/*.dropdown-content a:hover {background-color: #ddd;}*/
-
-/* Show the dropdown menu on hover */
-/*.dropdown:hover .dropdown-content {display: block;}*/
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-/*.dropdown:hover .dropbtn {background-color: #3e8e41;}*/
+  
