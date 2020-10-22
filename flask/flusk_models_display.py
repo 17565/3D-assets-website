@@ -9,7 +9,6 @@ DATABASE = "3dmodel.db"
 def get_db():
     db = getattr(g,'database', None)
     if db is None:
-        db = g._database = sqlite3.connect(DATABASE)
         db = g.database = sqlite3.connect(DATABASE)
     return db
 
